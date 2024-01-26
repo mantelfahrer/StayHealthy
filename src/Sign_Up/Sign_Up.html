@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Untitled</title>
+    <meta
+      name="description"
+      content="This is an example of a meta description."
+    />
+    <link rel="stylesheet" type="text/css" href="Sign_Up.css" />
+  </head>
+  <body>
+    <h1>Sign-up</h1>
+    <form class="signup-form">
+      <p class="login-cta">
+        Already a member?
+        <a href="/Login/Login.html" class="link">Login here</a>
+      </p>
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+        class="form-input"
+      />
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email address"
+        required
+        class="form-input"
+      />
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+        class="form-input"
+      />
+      <label for="role" class="form-label">Role</label>
+      <select name="role" required class="form-input">
+        <option value="" selected>Choose your role</option>
+        <option value="role1">Role 1</option>
+        <option value="role2">Role 2</option>
+        <option value="role3">Role 3</option>
+      </select>
+      <label for="phone" class="form-label">Phone number</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="Enter your phone number"
+        required
+        class="form-input"
+      />
+      <input type="reset" value="Reset" class="button button--secondary" />
+      <input type="submit" value="Sign-up" class="button" />
+    </form>
+  </body>
+</html>
