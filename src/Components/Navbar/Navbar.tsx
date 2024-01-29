@@ -66,6 +66,9 @@ const Navbar = (props: Props) => {
                         />
                         <p className="menu-flexbox__item">Reviews</p>
                     </Link>
+                    <Link to="/instant-consultation" className="navbar-menu__item menu-flexbox">
+                        <p className="menu-flexbox__item">Instant Consultation</p>
+                    </Link>
                     {isLoggedIn ?
                         <>
                             <p>{`Hello, ${username}`}</p>
