@@ -1,0 +1,42 @@
+import React from 'react'
+import './Navbar.css'
+import { Link } from 'react-router-dom'
+
+type Props = {}
+
+const Navbar = (props: Props) => {
+    return (
+        <>
+            <nav className="navbar">
+                <Link to="/" className="brand">
+                    <p className="brandname">StayHealthy</p>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFOElEQVR4nO2cW2gdRRjH/9FK1RbxglpviKJPXvGCgm8i2iKtKCiIPoqCmDZxv+8kQfAI+mAfvL2oWBBR6UMtCqJ4KRqrNsn5vk2bSrUa0OpDfRFaa8RLL1mZOTmpsUk8J2dmZ/dkfvDBIZfdmd9+59vdmdkFIpFIJBKJRCKRSCQSiUQi/0/3yClgWQOSZ8G6BSQ/gWU/WDOQTIBkL1g+AetzSGQ1eodOcq61mp5st036PEg+BcvPdt/1NvwKlh9t21iesW01f18aSG8CyUaw/mE71HwcAOsrSEYuarsN/XIxSDaA9LfW2iC/g/RNJHI9CgvVrgbLYItys1k6exAsL6N36LyW21AZOd8eLLuNNttB8iEqtctQGB5MTwDLerAebl+y/lu4KTP3Nt0Ort1XLwcO20B6CCyPozq4BEEZGD4brENuBet/O/s6qoMnztkG8zvWN7y2wZxLeodORxCS0QtBOu63g9qIrej/6rRj2mB+RvK5//3LX0jSmwNIHjsrR8nZVOzAuh2nzpDMsjMfybIqUE32XC54zk5/aUuFCdJtnSvZUD/xZcGCzGWbbOhsyfYSzvXVhRYwmpDs9UrEyXWyll8y1VaCZZMfyZX0xvAS1G+Q/G1v2ef3cBtI/wTLJJLRa92Lrt9Wh5fBgTPZSm4cGH3VwwBRy2MXnS2Z7f/tR/f4UneizchWcBlaMMlTkaS3uxNdH+pcnJITWTWnZBMkT7oTbcdsQ0vRgCe+ebf1gTvRpHuCi+GCZfL0AdNxl6JbHEBfFJmcTR20X1yKPhRcEBcsk49u86A70Y25vjIHuc7k6e3ucyhaf3DWWdY+UG2FDfPZZFkpM7nRJ/3eoWhJHXW6b9YOepXtUXI9xKFofdtNRtdWzNlRL7K9Szax2Z1o0se8il5ofQxRk4/ZT9oPZ1B6q5vOp/M3yllm55LJjQN6izvRZgaY5EhuArgd2blKPjLrpHFbkHxR+K805VQupvenn8E5JD1OGseehOQt2URFH3FsubHcSiYLKZsCSLaldPRceKG++jNzF+KgZudYk2eK/tix3RkNXu1WtLaXjSEyeXrftZXwR9YFkm8KIZtCStZvUc2Og1dIH3LecG61jAQqF9ORPoCcloR9F1R2ElKy7M5vGW9F7vLTCW2uJIQoF0dFr0F+mFrtc5GhLGzdm/eRQN2K3KHRK508wsCOMtt3JtfbczmCwPKUx+zJmpbtvVzYeALBMKt0WL8OKruSh2TZ7XZF0kJI0hu8lhCep2b7r8lT02+161AIWNjz1zazQs14dk96jg3zOZf5Ru1Fcci6wPpuDp3Ocg2S923fCsXA9jOnHvntEMm6B/21M1BI+kauso/5lj+TJ+zla6Gh2p1upr00UJiV/LV7UApczZpzgKjIAEoFywslzOYXUTrMeK15cim4PG0uSN7B3ZuORympPxC/pQSZ/FH4O792MW914QI/n2iWUSRjy9ARJGPL7BBj4STrNlR3LUdHUd21vFBlxCx+MY/1dSTd40vtSSe0ZJb3vLwsq1BUB5eA5LVwmSwb7bzn4iDrCnKdTfKS/2UCxZS9PkfJTxdvJC5PWNZ5fgfIYSTp2tDdLAZk3n9hXzDoOosncl4eUAL60ivqr9V0JnkvOL0mdLeKSY+ZolJtX7KO4VG5IHR3ynAXubmNTH6rc26p85mD7GvtJCmT8cpiodgXksi+JkQfAOkdC95PBAAPX2pr7tySt6N/9JLoyt0bfR8GyXB98tdOAA+B5P5FeKcXiUQikUgkEolEIpFIJILQ/AO4ERFMGj9TfAAAAABJRU5ErkJggg=="
+                    />
+                </Link>
+                <div className="navbar-menu">
+                    <Link to="" className="navbar-menu__item menu-flexbox">
+                        <img
+                            className="menu-flexbox__item"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABYElEQVR4nO2WwUrDQBCG566CKPgwolS9iIj4KEV2N7EnfaOW+gqidHbFSH0C9eCtKHgSUWYz2VbTsmkcvTQ/zCGbYT7mn+wQgEaLJ+UOwdgnMPZTJLR9BIUHcTAlSkHH8RAHF8lSqlzPNOD/ttoIR1QN2LBVCW5C6rZqP9e22hdx27WfF2/Gp4P1auB5ZxgLbZ9B4VEcPO8MAwC7YLAFKlvKw+6AwR7D3yFx+39gNZpQR+MANF5P1E05ZwTt21U5MHU6rc73sz6PqSM4Y2zFwW6XLc/kZnx2vzy1jso2xmeXK+zOm5zVZfCQ3w3DVSrAxr7I/frQ1zsp6jTAsZ2fuT3u+KYMph+zWnDslWpRpwQ9uVrLm8ILzj+HX4uK03LIC6Yz8xLshOsU3WJVRRuJlkMO7/uvl2ZOQfZq7lTjB2h7LAMtRBuJupk9ipE8tBBtJG8p3vkro+0rGHR+pj/s/QK8Gav3gVUWHAAAAABJRU5ErkJggg=="
+                        />
+                        <p className="menu-flexbox__item">Appointments</p>
+                    </Link>
+                    <Link to="" className="navbar-menu__item menu-flexbox">
+                        <img
+                            className="menu-flexbox__item"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsklEQVR4nNWWO0sDQRDHR0Gx8N2IhYXEINaCYCFioV9AsNE6QkB8ZCaJWpxgk6/gB1AhjVhoGwsxyewGH6SzSS2I6VQkRvaMF8zldXvJQf4w1c1/fzezs8sCdJyMbK8ZngvFDRAnvIWGUpNA/A0kioDS5x2YRMSEmmAR9g6MnLHAxNIjqPSVoX+R9HsAFod2MB+0H0z8aAOjeGg3dNpebSnCmZnWA41EH0SfRgD5uCZYfVM5Krf5SuQSIL8Acr7mwm4DOW8yiBfL4GhmCohzbYOSNYQ5+4UTkUNAHG9fxeISdu9G67SdA4D82ULgl3nTQbGr8Z6HMrOA/Nya1qbnmx82pa3UIJA4dzFMF+aUa4s4WGqXg9ZyEFxrPzkGyAUHlRZgR467B6PY1NjbgHswiWuN/b1yBzWy/YDiXaPiD3M4tRVKr9U5m0dm1Bo85dUW8lnVs0lywcoJi7nqZ55P9aAB2QPEbxWLxWH7ftiWS7cDgOKkYp/zes9flCv/FqH0emMPrwKJV8sXFssaYI6VqkzAHk807VO5yvP7wzHnYEr6AXkDjGK3Y6/yKK8nj0DoEP0AhC691cIvk1oAAAAASUVORK5CYII="
+                        />
+                        <p className="menu-flexbox__item">Reviews</p>
+                    </Link>
+                    <Link to="/Login" className="navbar-menu__item button--outline">Login</Link>
+                    <Link to="/SignUp" className="navbar-menu__item button--outline">Sign-up</Link>
+                </div>
+            </nav>
+            <div className="spacer"></div>
+        </>
+
+    )
+}
+
+export default Navbar

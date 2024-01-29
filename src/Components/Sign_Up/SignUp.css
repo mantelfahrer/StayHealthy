@@ -76,6 +76,12 @@ h1 {
     font-weight: 600;
 }
 
+.form-helper {
+    margin: 1px;
+    font-size: 16px;
+    color: #3c3c3c;
+}
+
 .login-cta {
   font-weight: 600;
   margin-bottom: 40px;
