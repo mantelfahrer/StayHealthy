@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Login.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 type Props = {}
 
@@ -9,13 +10,47 @@ const Login = (props: Props) => {
         email: "",
         password: ""
     });
+    const navigate = useNavigate();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        console.log(formData);
+    useEffect(() => {
+        if (sessionStorage.getItem("auth-token")) {
+            navigate("/")
+        }
+    }, []);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const res = await fetch(`${API_URL}/api/auth/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // name: name,
+                email: formData.email,
+                password: formData.password,
+            }),
+        });
+        const json = await res.json();
+        if (json.authtoken) {
+            sessionStorage.setItem('auth-token', json.authtoken);
+
+            sessionStorage.setItem('email', formData.email);
+            navigate('/');
+            window.location.reload()
+        } else {
+            if (json.errors) {
+                for (const error of json.errors) {
+                    alert(error.msg);
+                }
+            } else {
+                alert(json.error);
+            }
+        }
     };
 
     return (

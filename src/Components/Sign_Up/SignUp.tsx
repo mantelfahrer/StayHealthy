@@ -1,6 +1,7 @@
 import React from 'react'
 import './SignUp.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 type Props = {}
 
@@ -12,13 +13,47 @@ const SignUp = (props: Props) => {
         role: "",
         phone: "",
     });
+    const [showerr, setShowerr] = React.useState('');
+    const navigate = useNavigate();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        console.log(formData);
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        // e.preventDefault();
+        // API Call
+        const response = await fetch(`${API_URL}/api/auth/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                password: formData.password,
+                phone: formData.phone,
+            }),
+        });
+        const json = await response.json();
+        if (json.authtoken) {
+            sessionStorage.setItem("auth-token", json.authtoken);
+            sessionStorage.setItem("name", formData.name);
+            // phone and email
+            sessionStorage.setItem("phone", formData.phone);
+            sessionStorage.setItem("email", formData.email);
+            // Redirect to home page
+            navigate("/");   //on directing to home page you need to give logic to change login and signup buttons with name of the user and logout button where you have implemented Navbar functionality
+            window.location.reload();
+        } else {
+            if (json.errors) {
+                for (const error of json.errors) {
+                    setShowerr(error.msg);
+                }
+            } else {
+                setShowerr(json.error);
+            }
+        }
     };
 
     return (
@@ -82,6 +117,7 @@ const SignUp = (props: Props) => {
                     value={formData.phone}
                     onChange={onChange}
                 />
+                {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
                 <input type="reset" value="Reset" className="button button--secondary" />
                 <input type="submit" value="Sign-up" className="button" />
             </form>
